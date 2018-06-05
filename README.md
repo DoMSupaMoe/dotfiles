@@ -6,10 +6,10 @@ The dotfiles contain configurations for git, zsh, vim, tmux, and vscode. They ar
 
 ## Preparation
 
-Install git, zsh, vim, and tmux by package manager.
+Install git, zsh, vim, tmux, and build-essential.
 
 ```bash
-sudo apt install git zsh vim tmux
+sudo apt install git zsh vim tmux build-essential
 ```
 
 Make Z shell as default shell.
@@ -32,10 +32,10 @@ git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
 
 ## Download
 
-Clone the repo into the home directory.
+Clone the dotfiles repository into the local directory.
 
 ```bash
-git clone https://github.com/domsupamoe/dotfiles.git ~/dotfiles
+git clone https://github.com/domsupamoe/dotfiles.git
 ```
 
 ## Configuration
@@ -71,7 +71,7 @@ Install the Material Theme for VS Code.
 Install all the required dependencies for Ruby.
 
 ```
-sudo apt-get install ruby ruby-dev build-essential
+sudo apt install ruby ruby-dev
 ```
 
 ### Node.js
