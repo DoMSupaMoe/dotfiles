@@ -22,6 +22,9 @@ export WORKON_HOME=$HOME/.virtualenvs
 export PROJECT_HOME=$HOME/workspace
 #source /usr/local/bin/virtualenvwrapper.sh
 
+# Added by Anaconda3 installer
+export PATH="$HOME/anaconda3/bin:$PATH"
+
 # Set name of the theme to load
 ZSH_THEME="ys"
 
