@@ -42,6 +42,7 @@ set autowrite     " Automatically :write before running commands
 
 " Numbers
 set number
+set relativenumber
 set numberwidth=5
 
 " Softtabs, 2 spaces
