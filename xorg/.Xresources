@@ -1,0 +1,10 @@
+URxvt.background: #000000
+URxvt.foreground: #ffffff
+
+URxvt.transparent: true
+URxvt.shading: 50
+
+URxvt.scrollBar: false
+
+URxvt.font: xft:inconsolata:size=11
+URxvt.letterSpacing: -1
