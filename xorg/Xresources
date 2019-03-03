@@ -1,8 +1,10 @@
-URxvt.background: #000000
+urxvt.depth: 32 
+
+urxvt.background: [50]#000000
 URxvt.foreground: #ffffff
 
-URxvt.transparent: true
-URxvt.shading: 50
+#URxvt.transparent: true
+#URxvt.shading: 50
 
 URxvt.scrollBar: false
 
