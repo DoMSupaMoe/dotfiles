@@ -2,8 +2,6 @@
 
 The dotfiles contain configurations for git, zsh, vim, tmux, and vscode. They are mainly based on personal use and taste. Feel free to make them as your references in order to create your own dotfiles. To make them fully compatible, it is better to also setup the Ruby and Node.js environments.
 
-![screenshot](screenshot.jpg)
-
 ## Preparation
 
 Install git, zsh, vim, tmux, and build-essential.
