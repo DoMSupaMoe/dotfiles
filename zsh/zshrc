@@ -13,17 +13,11 @@ export PATH=$HOME/.gem/ruby/2.5.0/bin:$PATH
 export NVM_DIR="$HOME/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && \. "$NVM_DIR/nvm.sh" # This loads nvm
 
-# Overridee the PATH for Python and Virtualenv
-export VIRTUALENVWRAPPER_PYTHON=/usr/bin/python3
-export VIRTUALENVWRAPPER_VIRTUALENV=/usr/local/bin/virtualenv
+# Add environment path for pipenv
+export PATH="$HOME/.local/bin:$PATH"
 
-# Set the locations for Virtualenvwrapper
-export WORKON_HOME=$HOME/.virtualenvs
-export PROJECT_HOME=$HOME/workspace
-#source /usr/local/bin/virtualenvwrapper.sh
-
-# Added by Anaconda3 installer
-export PATH="$HOME/anaconda3/bin:$PATH"
+# Load pyenv automatically
+export PATH="$HOME/.pyenv/bin:$PATH"
 
 # Set name of the theme to load
 ZSH_THEME="ys"
@@ -70,5 +64,9 @@ alias lr='ll -R'           #  Recursive ls
 alias la='ll -A'           #  Show hidden files
 alias tree='tree -Csuh'    #  Nice alternative to 'recursive ls'
 
-# Run python in the virtual environment
-alias prp="pipenv run python"
+# Run Python in the virtual environment
+alias prp='pipenv run python'
+alias python='python3'
+
+# Compile C++ source file with C++17
+alias g++='g++ -std=c++17 -O2 -Wall'
