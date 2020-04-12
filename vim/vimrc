@@ -11,7 +11,6 @@ Plug 'nanotech/jellybeans.vim'
 
 " Plugins
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'lervag/vimtex'
 
 " Initialize plugin system
 call plug#end()
@@ -38,9 +37,11 @@ set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
 " Numbers
-set number
-set relativenumber
+set number relativenumber
 set numberwidth=5
+
+" Toggle hybrid line numbers
+nnoremap <C-n> :set nu! rnu!<CR>
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -55,12 +56,3 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
-
-" Clipboard copy/paste
-nnoremap <Leader>y "*y
-nnoremap <Leader>p "*p
-
-" Set the viewer method
-let g:vimtex_view_general_viewer = 'okular'
-let g:vimtex_view_general_options = '--unique file:@pdf\#src:@line@tex'
-let g:vimtex_view_general_options_latexmk = '--unique'
