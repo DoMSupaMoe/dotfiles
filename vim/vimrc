@@ -1,5 +1,5 @@
-set nocompatible              " be iMproved, required
-filetype off                  " required
+set nocompatible              " Required to be iMproved
+filetype off                  " Required
 
 " Specify a directory for plugins
 call plug#begin('~/.vim/plugged')
@@ -30,9 +30,10 @@ set nobackup
 set nowritebackup
 set noswapfile
 set history=50
-set ruler         " show the cursor position all the time
-set showcmd       " display incomplete commands
-set incsearch     " do incremental searching
+set ruler         " Show the cursor position all the time
+set mouse=a       " Necessary to use mouse as cursor
+set showcmd       " Display incomplete commands
+set incsearch     " Do incremental searching
 set laststatus=2  " Always display the status line
 set autowrite     " Automatically :write before running commands
 
