@@ -31,7 +31,7 @@ set nowritebackup
 set noswapfile
 set history=50
 set ruler         " Show the cursor position all the time
-set mouse=a       " Necessary to use mouse as cursor
+set mouse=n       " Necessary to use mouse as cursor
 set showcmd       " Display incomplete commands
 set incsearch     " Do incremental searching
 set laststatus=2  " Always display the status line
