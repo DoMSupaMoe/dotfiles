@@ -4,6 +4,8 @@ This repo contains most of the tools and dev environment setup that I am current
 
 ## Tools Setup
 
+Install essential packages and replace the default shell to zsh with downloaded configs.
+
 ```bash
 # install essential packages
 sudo apt install git zsh vim tmux build-essential
@@ -28,11 +30,24 @@ ln -s ~/dotfiles/git/gitignore ~/.gitignore
 ### VS Code Config
 
 The user settings file location for different OS:
-
 * Windows: %APPDATA%\Code\User\settings.json
 * Linux: $HOME/.config/Code/User/settings.json
 
+List of essential plugins for development:
+* ms-vscode-remote.remote-wsl
+* ms-vscode.theme-tomorrowkit
+* vscodevim.vim
+* vscode-icons-team.vscode-icons
+* james-yu.latex-workshop
+* ms-vscode.cpptools
+* dbaeumer.vscode-eslint
+* esbenp.prettier-vscode
+* ms-python.python
+* octref.vetur
+
 ### Node.js Env
+
+Check the latest version of nvm from the offical repo: [https://github.com/nvm-sh/nvm](https://github.com/nvm-sh/nvm).
 
 ```bash
 # install nvm and use nvm to install latest node
@@ -41,6 +56,8 @@ nvm install node
 ```
 
 ### Python Env
+
+For the package dependency manager, replaced dated pipenv with poetry for better experience.
 
 ```bash
 # install python version manager
