@@ -1,89 +1,60 @@
-# Personal Dotfiles
+# Customized Dotfiles
 
-The dotfiles contain configurations for git, zsh, vim, tmux, and vscode. They are mainly based on personal use and taste. Feel free to make them as your references in order to create your own dotfiles. To make them fully compatible, it is better to also setup the Ruby and Node.js environments.
+This repo contains most of the tools and dev environment setup that I am currently using.
 
-## Preparation
-
-Install git, zsh, vim, tmux, and build-essential.
+## Tools Setup
 
 ```bash
+# install essential packages
 sudo apt install git zsh vim tmux build-essential
-```
 
-Make Z shell as default shell.
-
-```bash
+# download zsh shell and oh-my-zsh config
 chsh -s $(which zsh)
-```
-
-Install Oh My Zsh via the command-line with Wget.
-
-```bash
 sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+
+# clone the dotfiles repo into home directory
+git clone https://github.com/domsupamoe/dotfiles.git ~/dotfiles
+
+# create sym links for the configs
+ln -s ~/dotfiles/zsh/zshrc ~/.zshrc
+ln -s ~/dotfiles/vim/vimrc ~/.vimrc
+ln -s ~/dotfiles/tmux/tmux.conf ~/.tmux.conf
+ln -s ~/dotfiles/git/gitconfig ~/.gitconfig
+ln -s ~/dotfiles/git/gitignore ~/.gitignore
 ```
 
-Setup Vim bundle, a Vim plugin manager.
+## DevEnv Setup
 
-```bash
-git clone https://github.com/VundleVim/Vundle.vim.git ~/.vim/bundle/Vundle.vim
-```
+### VS Code Config
 
-## Download
-
-Clone the dotfiles repository into the local directory.
-
-```bash
-git clone https://github.com/domsupamoe/dotfiles.git
-```
-
-## Configuration
-
-Create symbolic links for all the configuration files.
-
-```bash
-ln -s src_file dest_file
-```
-
-For Vim plugin install, launch vim and run `:PluginInstall`.
-
-## Extra
-
-### VS Code
-
-The user settings file is located:
+The user settings file location for different OS:
 
 * Windows: %APPDATA%\Code\User\settings.json
-* Mac OS: $HOME/Library/Application Support/Code/User/settings.json
 * Linux: $HOME/.config/Code/User/settings.json
 
-Launch Quick Open by Ctrl+P and Enter command:
+### Node.js Env
 
 ```bash
-ext install vsc-material-theme
-```
-
-Install the Material Theme for VS Code.
-
-### Ruby
-
-Install all the required dependencies for Ruby.
-
-```
-sudo apt install ruby ruby-dev
-```
-
-### Node.js
-
-Install the Node Version Manager:
-
-```
-wget -qO- https://raw.githubusercontent.com/creationix/nvm/v0.33.11/install.sh | bash
-```
-
-Close and reopen the terminal.
-
-Install the latest release of Node.js:
-
-```
+# install nvm and use nvm to install latest node
+wget -qO- https://raw.githubusercontent.com/creationix/nvm/$VERSION/install.sh | bash
 nvm install node
+```
+
+### Python Env
+
+```bash
+# install python version manager
+git clone https://github.com/pyenv/pyenv.git ~/.pyenv
+
+# install poetry for package dependency management
+sudo apt install python-is-python3 python3-venv python3-pip
+curl -sSL https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py | python
+```
+
+### Go Env
+
+```bash
+# download the archive and extract it into /usr/local 
+curl -O https://storage.googleapis.com/golang/go$VERSION.$OS-$ARCH.tar.gz ~/go$VERSION.$OS-$ARCH.tar.gz
+tar -C /usr/local -xzf go$VERSION.$OS-$ARCH.tar.gz
 ```
