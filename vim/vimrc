@@ -57,6 +57,9 @@ set shiftwidth=2
 set shiftround
 set expandtab
 
+" Turn 'paste' on and off
+set pastetoggle=<F2>
+
 " Quicker window movement
 nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
