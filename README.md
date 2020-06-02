@@ -11,8 +11,7 @@ Install essential packages and replace the default shell to zsh with downloaded 
 sudo apt install git zsh vim tmux build-essential
 
 # download zsh shell and oh-my-zsh config
-chsh -s $(which zsh)
-sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+sh -c "$(wget -O- https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
 # clone the dotfiles repo into home directory
 git clone https://github.com/domsupamoe/dotfiles.git ~/dotfiles
