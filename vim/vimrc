@@ -32,17 +32,18 @@ highlight LineNr  ctermbg=none
 " Leader
 map <Space> <Leader>
 
-set backspace=2   " Backspace deletes like most programs in insert mode
+set encoding=utf-8  " Set encodign to utf-8 to browse through unicode
+set backspace=2     " Backspace deletes like most programs in insert mode
 set nobackup
 set nowritebackup
 set noswapfile
 set history=50
-set ruler         " Show the cursor position all the time
-set mouse=n       " Necessary to use mouse as cursor
-set showcmd       " Display incomplete commands
-set incsearch     " Do incremental searching
-set laststatus=2  " Always display the status line
-set autowrite     " Automatically :write before running commands
+set ruler           " Show the cursor position all the time
+set mouse=n         " Necessary to use mouse as cursor
+set showcmd         " Display incomplete commands
+set incsearch       " Do incremental searching
+set laststatus=2    " Always display the status line
+set autowrite       " Automatically :write before running commands
 
 " Numbers
 set number relativenumber
