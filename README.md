@@ -31,6 +31,10 @@ ln -s ~/dotfiles/git/gitignore ~/.gitignore
 The user settings file location for different OS:
 * Windows: %APPDATA%\Code\User\settings.json
 * Linux: $HOME/.config/Code/User/settings.json
+* Mac OS: $HOME/Library/Application Support/Code/User/settings.json
+
+Note: in settings.json, the ligature font "Fira Code" needs to be preinstalled.\
+Detailed setup can be found in its own repo: https://github.com/tonsky/FiraCode.
 
 List of essential plugins for development:
 * ms-vscode-remote.remote-wsl
@@ -43,6 +47,7 @@ List of essential plugins for development:
 * esbenp.prettier-vscode
 * ms-python.python
 * octref.vetur
+* eamodio.gitlens
 
 ### Node.js Env
 

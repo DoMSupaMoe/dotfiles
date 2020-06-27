@@ -3,6 +3,11 @@
     "workbench.iconTheme": "vscode-icons",
     "editor.tabSize": 2,
     "editor.lineNumbers": "relative",
+    "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
+    "editor.fontSize": 12,
+    "editor.fontLigatures": true,
+    "files.insertFinalNewline": true,
+    "git.githubAuthentication": false,
     "latex-workshop.view.pdf.viewer": "browser",
-    "files.insertFinalNewline": true
+    "window.zoomLevel": -1
 }
