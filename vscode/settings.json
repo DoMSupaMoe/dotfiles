@@ -4,10 +4,10 @@
     "editor.tabSize": 2,
     "editor.lineNumbers": "relative",
     "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
-    "editor.fontSize": 12,
     "editor.fontLigatures": false,
     "files.insertFinalNewline": true,
     "github.gitAuthentication": false,
     "latex-workshop.view.pdf.viewer": "browser",
-    "window.zoomLevel": -1
+    "window.zoomLevel": -1,
+    "editor.fontSize": 13
 }
