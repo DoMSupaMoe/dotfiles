@@ -47,9 +47,9 @@ floating_modifier $mod
 bindsym $mod+Return exec termite
 
 # screenshot shortcuts
-bindsym Print exec maim ~/images/screens/$(date +%s).png && notify-send "Screenshot saved in: ~/images/screens"
-bindsym $mod+Print exec maim -s ~/images/screens/$(date +%s).png && notify-send "Screenshot saved in: ~/images/screens"
-bindsym $mod+Shift+Print exec maim -st 9999999 ~/images/screens/$(date +%s).png && notify-send "Screenshot saved in: ~/images/screens"
+bindsym Print exec maim ~/images/screens/$(date +%s).png && notify-send "$(echo -e "(A) Screenshot Saved \nThe screenshot is saved inside: ~/images/screens folder.")"
+bindsym $mod+Print exec maim -s ~/images/screens/$(date +%s).png && notify-send "$(echo -e "(A) Screenshot Saved \nThe screenshot is saved inside: ~/images/screens folder.")"
+bindsym $mod+Shift+Print exec maim -st 9999999 ~/images/screens/$(date +%s).png && notify-send "$(echo -e "(A) Screenshot Saved \nThe screenshot is saved inside: ~/images/screens folder.")"
 
 # set a global gap size
 gaps inner 6
