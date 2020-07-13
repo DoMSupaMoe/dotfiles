@@ -1,0 +1,84 @@
+* {
+  highlight: bold;
+  scrollbar: false;
+
+  themecolor:                  #bd93f9;
+  foreground:                  #f8f8f2;
+  background:                  #222222;
+  background-alt:              #3f3f3f;
+
+  background-color:            @background;
+  border-color:                @themecolor;
+}
+
+window {
+  background-color: @background;
+  border:           2;
+  padding:          2;
+  width:            512;
+}
+
+message {
+  border:       2px 0 0;
+  border-color: @themecolor;
+  padding:      1px;
+}
+
+textbox {
+  highlight:  @highlight;
+  text-color: @foreground;
+}
+
+listview {
+  border:       2px solid 0 0;
+  padding:      2px 0 0;
+  border-color: @themecolor;
+  spacing:      2px;
+}
+
+element {
+  border:  0;
+  padding: 2px;
+}
+
+element.normal.normal {
+  background-color: @background;
+  text-color:       @foreground;
+}
+
+element.selected.normal {
+  background-color: @themecolor;
+  text-color:       @background;
+}
+
+element.alternate.normal {
+  background-color: @background-alt;
+  text-color:       @foreground;
+}
+
+mode-switcher {
+  border:       2px 0 0;
+  border-color: @themecolor;
+}
+
+inputbar {
+  spacing:    0;
+  text-color: @foreground;
+  padding:    2px;
+  children:   [ prompt, textbox-prompt-sep, entry, case-indicator ];
+}
+
+case-indicator,
+entry,
+prompt,
+button {
+  spacing:    0;
+  text-color: @foreground;
+}
+
+textbox-prompt-sep {
+  expand:     false;
+  str:        ":";
+  text-color: @foreground;
+  margin:     0 0.3em 0 0;
+}
