@@ -4,7 +4,7 @@
     "editor.tabSize": 2,
     "editor.lineNumbers": "relative",
     "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
-    "editor.fontLigatures": false,
+    "editor.fontLigatures": true,
     "files.insertFinalNewline": true,
     "github.gitAuthentication": false,
     "latex-workshop.view.pdf.viewer": "browser",
