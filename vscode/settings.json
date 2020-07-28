@@ -4,10 +4,14 @@
     "editor.tabSize": 2,
     "editor.lineNumbers": "relative",
     "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
-    "editor.fontLigatures": true,
+    "editor.fontLigatures": false,
     "files.insertFinalNewline": true,
     "github.gitAuthentication": false,
     "latex-workshop.view.pdf.viewer": "browser",
     "window.zoomLevel": -1,
-    "editor.fontSize": 13
+    "editor.fontSize": 13,
+    "vim.handleKeys": {
+        "<C-c>": false,
+        "<C-v>": false
+    }
 }

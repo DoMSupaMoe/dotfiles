@@ -32,7 +32,7 @@
       // Put settings here that you want to apply to all profiles.
       "colorScheme" : "Dracula",
       "fontFace": "Fira Code",
-      "fontSize": 9,
+      "fontSize": 8,
       "cursorShape": "filledBox",
       "useAcrylic": true,
       "acrylicOpacity": 0.8
