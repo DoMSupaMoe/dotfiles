@@ -12,6 +12,7 @@
     "editor.fontSize": 13,
     "vim.handleKeys": {
         "<C-c>": false,
-        "<C-v>": false
+        "<C-v>": false,
+        "<C-f>": false
     }
 }
