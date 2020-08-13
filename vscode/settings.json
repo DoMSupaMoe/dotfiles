@@ -6,6 +6,7 @@
     "editor.fontFamily": "'Fira Code', Consolas, 'Courier New', monospace",
     "editor.fontLigatures": false,
     "files.insertFinalNewline": true,
+    "editor.wordWrap": "on",
     "github.gitAuthentication": false,
     "latex-workshop.view.pdf.viewer": "browser",
     "window.zoomLevel": -1,
