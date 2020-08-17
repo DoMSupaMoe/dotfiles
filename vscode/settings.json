@@ -8,7 +8,7 @@
     "files.insertFinalNewline": true,
     "editor.wordWrap": "on",
     "github.gitAuthentication": false,
-    "latex-workshop.view.pdf.viewer": "browser",
+    "latex-workshop.view.pdf.viewer": "tab",
     "window.zoomLevel": -1,
     "editor.fontSize": 13,
     "vim.handleKeys": {
