@@ -44,6 +44,7 @@ set showcmd         " Display incomplete commands
 set incsearch       " Do incremental searching
 set laststatus=2    " Always display the status line
 set autowrite       " Automatically :write before running commands
+set guicursor=      " Fuck neovim change cursor style
 
 " Numbers
 set number relativenumber
@@ -51,6 +52,12 @@ set numberwidth=5
 
 " Toggle hybrid line numbers
 nnoremap <C-n> :set nu! rnu!<CR>
+
+" Clipboard copy/paste
+nnoremap <Leader>y "*y
+nnoremap <Leader>p "*p
+" Select all
+nnoremap <C-a> ggVG
 
 " Softtabs, 2 spaces
 set tabstop=2
