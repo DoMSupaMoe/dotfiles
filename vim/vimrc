@@ -17,7 +17,10 @@ call plug#begin('~/.vim/plugged')
 Plug 'nanotech/jellybeans.vim'
 
 " Plugins
-Plug 'ctrlpvim/ctrlp.vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
+Plug 'junegunn/fzf', {'do': {->fzf#install()}}
+Plug 'junegunn/fzf.vim'
 
 " Initialize plugin system
 call plug#end()
