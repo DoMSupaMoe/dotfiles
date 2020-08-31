@@ -17,10 +17,11 @@ call plug#begin('~/.vim/plugged')
 Plug 'nanotech/jellybeans.vim'
 
 " Plugins
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
 Plug 'junegunn/fzf', {'do': {->fzf#install()}}
 Plug 'junegunn/fzf.vim'
+
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'maxmellon/vim-jsx-pretty'
 
 " Initialize plugin system
 call plug#end()
@@ -35,6 +36,7 @@ highlight LineNr  ctermbg=none
 " Leader
 map <Space> <Leader>
 
+set autochdir
 set encoding=utf-8  " Set encodign to utf-8 to browse through unicode
 set backspace=2     " Backspace deletes like most programs in insert mode
 set nobackup
