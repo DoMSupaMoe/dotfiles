@@ -51,6 +51,8 @@ set laststatus=2    " Always display the status line
 set autowrite       " Automatically :write before running commands
 set guicursor=      " Fuck neovim change cursor style
 set clipboard+=unnamedplus     " Use clipboard in neovim
+set ignorecase
+set smartcase
 
 " Numbers
 set number relativenumber
