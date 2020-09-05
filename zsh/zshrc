@@ -31,11 +31,15 @@ plugins=(git)
 
 source $ZSH/oh-my-zsh.sh
 
+source /usr/share/fzf/key-bindings.zsh
+source /usr/share/fzf/completion.zsh
+
 # Replace alias modern tools
 alias ls='exa --all --group-directories-first'
 alias la='exa --long --all --header'
 alias tree='exa -T -l -L=2 -h -I="node_modules"'
 
+alias cat='bat'
 alias vim='nvim'
 
 # Prevent accidentally clobbering files
