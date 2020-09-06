@@ -1,6 +1,10 @@
 export VISUAL=vim
 export EDITOR=$VISUAL
 
+# Run tmux on startup zsh
+[[ $- != *i* ]] && return
+[[ -z "$TMUX" ]] && exec tmux
+
 # Path to your oh-my-zsh installation
 export ZSH="$HOME/.oh-my-zsh"
 
