@@ -72,12 +72,20 @@ nnoremap <C-a> ggVG
 " Resovle conflict block select
 nnoremap <C-q> <C-v>
 
+" Toggle netrw explorer 
+nnoremap <C-t> :Lexplore<CR>
+" Use fzf for searching
+nnoremap <C-f> :FZF<CR>
+
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
 set smarttab
 set shiftround
 set expandtab
+
+" Why is there a header?
+let g:netrw_banner=0
 
 " Fuck 4 spaces, 2 spaces is the way
 let g:rust_recommended_style=0
