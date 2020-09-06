@@ -51,8 +51,10 @@ set laststatus=2    " Always display the status line
 set autowrite       " Automatically :write before running commands
 set guicursor=      " Fuck neovim change cursor style
 set clipboard+=unnamedplus     " Use clipboard in neovim
-set ignorecase
-set smartcase
+set ignorecase            " Search will ignore all cases
+set smartcase             " Type Uppercase to be case sensitive
+set foldmethod=indent     " Set fold method to indent
+set foldlevel=99          " Set default to unfold
 
 " Numbers
 set number relativenumber
