@@ -69,6 +69,9 @@ nnoremap <Leader>p "*p
 " Select all
 nnoremap <C-a> ggVG
 
+" Resovle conflict block select
+nnoremap <C-q> <C-v>
+
 " Softtabs, 2 spaces
 set tabstop=2
 set shiftwidth=2
