@@ -13,8 +13,8 @@ call plug#begin('~/.vim/plugged')
 
 " Make sure you use single quotes
 
-" Color scheme
-Plug 'nanotech/jellybeans.vim'
+" Customized color scheme
+Plug 'domsupamoe/jellybeans.vim'
 
 " Plugins
 Plug 'junegunn/fzf', {'do': {->fzf#install()}}
@@ -22,6 +22,7 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'maxmellon/vim-jsx-pretty'
+Plug 'posva/vim-vue'
 
 " Initialize plugin system
 call plug#end()
@@ -74,11 +75,11 @@ nnoremap <C-q> <C-v>
 " Map capitalized u as redo
 nnoremap U :redo<CR>
 " Clear highlight after search
-nnoremap <CR> :noh<CR>
+nnoremap <Esc> :noh<CR>
 
 " Toggle netrw explorer 
 nnoremap <C-e> :Lexplore<CR>
-nnoremap <C-r> :Rexplore<CR>
+nnoremap <S-e> :Rexplore<CR>
 let g:netrw_banner=0
 let g:netrw_winsize=25
 " Use fzf for searching
@@ -102,3 +103,5 @@ nnoremap <C-j> <C-w>j
 nnoremap <C-k> <C-w>k
 nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
+
+nnoremap <C-c> <C-w>c
