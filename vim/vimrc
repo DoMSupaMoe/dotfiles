@@ -71,9 +71,13 @@ nnoremap <C-a> ggVG
 
 " Resovle conflict block select
 nnoremap <C-q> <C-v>
+" Map capitalized u as redo
+nnoremap U :redo<CR>
+" Clear highlight after search
+nnoremap <CR> :noh<CR>
 
 " Toggle netrw explorer 
-nnoremap <C-t> :Lexplore<CR>
+nnoremap <C-b> :Vexplore<CR>
 " Use fzf for searching
 nnoremap <C-f> :FZF<CR>
 
