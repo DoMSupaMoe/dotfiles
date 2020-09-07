@@ -77,9 +77,12 @@ nnoremap U :redo<CR>
 nnoremap <CR> :noh<CR>
 
 " Toggle netrw explorer 
-nnoremap <C-b> :Vexplore<CR>
+nnoremap <C-e> :Lexplore<CR>
+nnoremap <C-r> :Rexplore<CR>
+let g:netrw_banner=0
+let g:netrw_winsize=25
 " Use fzf for searching
-nnoremap <C-f> :FZF<CR>
+nnoremap <C-f> :Files<CR>
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -87,9 +90,6 @@ set shiftwidth=2
 set smarttab
 set shiftround
 set expandtab
-
-" Why is there a header?
-let g:netrw_banner=0
 
 " Fuck 4 spaces, 2 spaces is the way
 let g:rust_recommended_style=0
