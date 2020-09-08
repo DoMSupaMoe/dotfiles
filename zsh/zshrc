@@ -11,8 +11,11 @@ zinit light zsh-users/zsh-syntax-highlighting
 # Most themes require promptsubst
 setopt promptsubst
 
-# Source oh my zsh git repo
+# Source libs from oh my zsh repo
 zinit snippet OMZL::git.zsh
+zinit snippet OMZL::key-bindings.zsh
+zinit snippet OMZL::completion.zsh
+zinit snippet OMZL::compfix.zsh
 # Load plugins from oh my zsh repo
 zinit snippet OMZP::command-not-found
 
@@ -26,9 +29,11 @@ zinit snippet OMZT::ys
 export VISUAL=vim
 export EDITOR=$VISUAL
 
-# Run tmux on startup zsh
-[[ $- != *i* ]] && return
-[[ -z "$TMUX" ]] && exec tmux
+# Run tmux on startup zsh (no startx)
+if [[ $DISPLAY ]]; then
+  [[ $- != *i* ]] && return
+  [[ -z "$TMUX" ]] && exec tmux
+fi
 
 # Clone the nvm repository to ~/.nvm
 # Add the source line to the profile
