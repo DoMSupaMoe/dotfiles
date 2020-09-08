@@ -1,32 +1,34 @@
-if [ -f $HOME/.zinit/bin/zinit.zsh ]; then
-  # Add by zinit installer
-  source "$HOME/.zinit/bin/zinit.zsh"
-  autoload -Uz _zinit
-  (( ${+_comps} )) && _comps[zinit]=_zinit
-  # End of zinit installer
-
-  # Fast load plugin without track and report
-  zinit light zsh-users/zsh-autosuggestions
-  zinit light zsh-users/zsh-syntax-highlighting
-
-  # Most themes require promptsubst
-  setopt promptsubst
-
-  # Source libs from oh my zsh repo
-  zinit snippet OMZL::git.zsh
-  zinit snippet OMZL::key-bindings.zsh
-  zinit snippet OMZL::completion.zsh
-  zinit snippet OMZL::compfix.zsh
-  # Load plugins from oh my zsh repo
-  zinit snippet OMZP::command-not-found
-
-  # Make color constants available
-  autoload -U colors
-  colors
-
-  # Load theme from oh my zsh repo
-  zinit snippet OMZT::ys
+if [ ! -f $HOME/.zinit/bin/zinit.zsh ]; then
+  sh -c "$(curl -fsSL https://raw.githubusercontent.com/zdharma/zinit/master/doc/install.sh)"
 fi
+
+# Add by zinit installer
+source "$HOME/.zinit/bin/zinit.zsh"
+autoload -Uz _zinit
+(( ${+_comps} )) && _comps[zinit]=_zinit
+# End of zinit installer
+
+# Fast load plugin without track and report
+zinit light zsh-users/zsh-autosuggestions
+zinit light zsh-users/zsh-syntax-highlighting
+
+# Most themes require promptsubst
+setopt promptsubst
+
+# Source libs from oh my zsh repo
+zinit snippet OMZL::git.zsh
+zinit snippet OMZL::key-bindings.zsh
+zinit snippet OMZL::completion.zsh
+zinit snippet OMZL::compfix.zsh
+# Load plugins from oh my zsh repo
+zinit snippet OMZP::command-not-found
+
+# Make color constants available
+autoload -U colors
+colors
+
+# Load theme from oh my zsh repo
+zinit snippet OMZT::ys
 
 export VISUAL=vim
 export EDITOR=$VISUAL
