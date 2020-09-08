@@ -21,8 +21,13 @@ Plug 'junegunn/fzf', {'do': {->fzf#install()}}
 Plug 'junegunn/fzf.vim'
 
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'preservim/nerdcommenter'
+Plug 'tpope/vim-surround'
 Plug 'maxmellon/vim-jsx-pretty'
 Plug 'posva/vim-vue'
+
+" Netrw is hard to use
+Plug 'preservim/nerdtree'
 
 " Initialize plugin system
 call plug#end()
@@ -78,12 +83,31 @@ nnoremap U :redo<CR>
 nnoremap <Esc> :noh<CR>
 
 " Toggle netrw explorer 
-nnoremap <C-e> :Lexplore<CR>
-nnoremap <S-e> :Rexplore<CR>
+nnoremap <C-e> :NERDTreeToggle<CR>
+" Remove help header
+let NERDTreeMinimalUI=1
+" Set nerdtree as default file browser
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 &&
+      \ isdirectory(argv()[0]) &&
+      \ !exists("s:std_in") |
+      \ exe 'NERDTree' argv()[0] |
+      \ wincmd p | ene |
+      \ exe 'cd '.argv()[0] | endif
+" Close vim when only nerdtree window left
+autocmd bufenter * if (winnr("$") == 1 &&
+      \ exists("b:NERDTree") &&
+      \ b:NERDTree.isTabTree()) | q | endif
+
 let g:netrw_banner=0
-let g:netrw_winsize=25
+let g:netrw_liststyle=3
+
 " Use fzf for searching
-nnoremap <C-f> :Files<CR>
+nnoremap <C-f> :GFiles<CR>
+nnoremap <S-f> :Files<CR>
+" Hold shift too long
+command! W w
+command! Q q
 
 " Softtabs, 2 spaces
 set tabstop=2
@@ -105,3 +129,15 @@ nnoremap <C-h> <C-w>h
 nnoremap <C-l> <C-w>l
 
 nnoremap <C-c> <C-w>c
+
+" Configs for nerdcommenter
+let g:NERDCreateDefaultMappings=0
+
+let g:NERDSpaceDelims=1
+let g:NERDCompactSexyComs=1
+let g:NERDDefaultAlign='left'
+let g:NERDTrimTrailingWhitespace=1
+let g:NERDToggleCheckAllLines=1
+
+nmap <C-_> <Plug>NERDCommenterToggle
+vmap <C-_> <Plug>NERDCommenterToggle

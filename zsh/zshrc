@@ -56,6 +56,7 @@ alias tree='exa -T -l -L=2 -h -I="node_modules"'
 alias cat='bat'
 alias vim='nvim'
 alias ranger='. ranger'
+alias lg='lazygit'
 
 # Prevent accidentally clobbering files
 alias rm='rm -I'
