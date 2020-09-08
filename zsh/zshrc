@@ -1,30 +1,32 @@
-# Add by zinit installer
-source "$HOME/.zinit/bin/zinit.zsh"
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
-# End of zinit installer
+if type zinit > /dev/null 2>&1; then
+  # Add by zinit installer
+  source "$HOME/.zinit/bin/zinit.zsh"
+  autoload -Uz _zinit
+  (( ${+_comps} )) && _comps[zinit]=_zinit
+  # End of zinit installer
 
-# Fast load plugin without track and report
-zinit light zsh-users/zsh-autosuggestions
-zinit light zsh-users/zsh-syntax-highlighting
+  # Fast load plugin without track and report
+  zinit light zsh-users/zsh-autosuggestions
+  zinit light zsh-users/zsh-syntax-highlighting
 
-# Most themes require promptsubst
-setopt promptsubst
+  # Most themes require promptsubst
+  setopt promptsubst
 
-# Source libs from oh my zsh repo
-zinit snippet OMZL::git.zsh
-zinit snippet OMZL::key-bindings.zsh
-zinit snippet OMZL::completion.zsh
-zinit snippet OMZL::compfix.zsh
-# Load plugins from oh my zsh repo
-zinit snippet OMZP::command-not-found
+  # Source libs from oh my zsh repo
+  zinit snippet OMZL::git.zsh
+  zinit snippet OMZL::key-bindings.zsh
+  zinit snippet OMZL::completion.zsh
+  zinit snippet OMZL::compfix.zsh
+  # Load plugins from oh my zsh repo
+  zinit snippet OMZP::command-not-found
 
-# Make color constants available
-autoload -U colors
-colors
+  # Make color constants available
+  autoload -U colors
+  colors
 
-# Load theme from oh my zsh repo
-zinit snippet OMZT::ys
+  # Load theme from oh my zsh repo
+  zinit snippet OMZT::ys
+fi
 
 export VISUAL=vim
 export EDITOR=$VISUAL
@@ -47,13 +49,13 @@ export PATH="$HOME/.pyenv/bin:$PATH"
 export PATH="$HOME/.poetry/bin:$PATH"
 export PATH="/usr/local/go/bin:$PATH"
 
+local CONFIG="$HOME/.config"
+
 # Import fzf key binding and completion
-if [ -d $HOME/.config/fzf/ ]; then
-  source $HOME/.config/fzf/key-bindings.zsh
-  source $HOME/.config/fzf/completion.zsh
-else
-  echo '[error] fzf folder not exists'
-fi
+[ -f $CONFIG/fzf/key-bindings.zsh ] &&
+  \ source $CONFIG/fzf/key-bindings.zsh
+[ -f $CONFIG/fzf/completion.zsh ] &&
+  \ source $CONFIG/fzf/completion.zsh
 
 # Replace alias modern tools
 alias ls='exa --all --group-directories-first'
