@@ -75,6 +75,10 @@ nnoremap <Leader>p "*p
 " Select all
 nnoremap <C-a> ggVG
 
+" Easy multiple indents
+vnoremap < <gv
+vnoremap > >gv
+
 " Resovle conflict block select
 nnoremap <C-q> <C-v>
 " Map capitalized u as redo
