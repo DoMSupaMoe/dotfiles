@@ -10,6 +10,9 @@ YANK_URL="https://github.com/equalsraf/win32yank/releases/download/v0.0.4/$YANK_
 NVM_URL="https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh"
 POETRY_URL="https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py"
 
+GO_TAR="go1.15.2.linux-amd64.tar.gz"
+GO_URL="https://golang.org/dl/$GO_TAR"
+
 DOTFILES="$HOME/dotfiles"
 CONFIG="$HOME/.config"
 
@@ -33,6 +36,7 @@ function install_deb {
   echo "installing in ubuntu/debian..."
 
   sudo apt update && sudo apt upgrade
+  sudo apt autoremove
   sudo apt install update-manager-core
   sudo do-release-upgrade -d
 
@@ -88,8 +92,6 @@ function symlink_invade {
       ln -sfn $DOTFILES/vscode/settings.json $CONFIG/Code\ -\ OSS/User/settings.json
     fi
   fi
-
-  source $HOME/.zshrc   # take effect on zsh
 }
 
 # run main entry point
@@ -108,8 +110,8 @@ function main {
   curl -sSL $POETRY_URL | python
 
   # install go
-  wget https://golang.org/dl/go1.15.2.linux-amd64.tar.gz
-  tar -C /usr/local -xzf go1.15.2.linux-amd64.tar.gz
+  wget $GO_URL -O $HOME/$GO_TAR
+  sudo tar -C /usr/local -xzf $HOME/$GO_TAR && rm $HOME/$GO_TAR
 
   symlink_invade
 }
