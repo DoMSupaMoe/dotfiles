@@ -21,7 +21,7 @@ function install_arch {
   echo "installing in arch linux..."
 
   sudo pacman -Syu
-  sudo pacman -S \
+  sudo pacman -S --needed\
     zsh git gvim tmux base-devel \
     neovim fzf exa ranger ripgrep \
     bat python neofetch
