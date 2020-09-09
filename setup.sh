@@ -26,7 +26,7 @@ function install_arch {
 function install_deb {
   echo "installing in ubuntu/debian..."
 
-  sudo apt update
+  sudo apt update && sudo apt upgrade
   sudo apt install update-manager-core
   sudo do-release-upgrade -d
 
@@ -72,14 +72,15 @@ function symlink_invade {
   cp -vn $DOTFILES/git/gitconfig $HOME/.gitconfig
   cp -vn $DOTFILES/git/gitignore $HOME/.gitignore
 
-  if grep -q -i "microsoft" /proc/version && \
-    type code > /dev/null 2>&1; then
-    echo "using wsl with vscode installed"
-    CODE_PATH=$(wslpath "$(wslvar APPDATA)"/Code/User/settings.json)
-    cp -v $DOTFILES/vscode/settings.json $CODE_PATH
-  elif [[ "$OSTYPE" == "linux"* ]]; then
-    echo "using linux with vscode installed"
-    ln -sfn $DOTFILES/vscode/settings.json $CONFIG/Code/User/settings.json
+  if type code > /dev/null 2>&1; then
+    if grep -q -i "microsoft" /proc/version; then
+      echo "using wsl with vscode installed"
+      CODE_PATH=$(wslpath "$(wslvar APPDATA)"/Code/User/settings.json)
+      cp -v $DOTFILES/vscode/settings.json $CODE_PATH
+    elif [[ "$OSTYPE" == "linux"* ]]; then
+      echo "using linux with vscode installed"
+      ln -sfn $DOTFILES/vscode/settings.json $CONFIG/Code\ -\ OSS/User/settings.json
+    fi
   fi
 }
 
