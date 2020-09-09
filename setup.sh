@@ -7,6 +7,9 @@ YANK_EXE="win32yank.exe"
 YANK_ZIP="win32yank-x64.zip"
 YANK_URL="https://github.com/equalsraf/win32yank/releases/download/v0.0.4/$YANK_ZIP"
 
+DOTFILES="$HOME/dotfiles"
+CONFIG="$HOME/.config"
+
 # install packages
 function install_arch {
   echo "installing in arch linux..."
@@ -54,6 +57,20 @@ function install_deb {
 # create symlinks
 function symlink_invade {
   echo "spamming with symlinks..."
+
+  # dotfiles should be in home dir
+  ln -s -f $DOTFILES/vim/vimrc $HOME/.vimrc
+  ln -s -f $DOTFILES/zsh/zshrc $HOME/.zshrc
+  ln -s -f $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+
+  mkdir -p $CONFIG/nvim && \
+    ln -sfn $DOTFILES/config/nvim/init.vim $CONFIG/nvim/init.vim
+  mkdir -p $CONFIG/fzf && \
+    ln -sfn $DOTFILES/config/fzf/key-bindings.zsh $CONFIG/fzf/key-bindings.zsh
+    ln -sfn $DOTFILES/config/fzf/completion.zsh $CONFIG/fzf/completion.zsh
+
+  cp -vn $DOTFILES/git/gitconfig $HOME/.gitconfig
+  cp -vn $DOTFILES/git/gitignore $HOME/.gitignore
 }
 
 # run main entry point

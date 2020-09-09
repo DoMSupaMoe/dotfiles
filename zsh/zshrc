@@ -54,10 +54,10 @@ export PATH="/usr/local/go/bin:$PATH"
 local CONFIG="$HOME/.config"
 
 # Import fzf key binding and completion
-[ -f $CONFIG/fzf/key-bindings.zsh ] &&
-  \source $CONFIG/fzf/key-bindings.zsh
-[ -f $CONFIG/fzf/completion.zsh ] &&
-  \source $CONFIG/fzf/completion.zsh
+[ -f $CONFIG/fzf/key-bindings.zsh ] && \
+  source $CONFIG/fzf/key-bindings.zsh
+[ -f $CONFIG/fzf/completion.zsh ] && \
+  source $CONFIG/fzf/completion.zsh
 
 # Replace alias modern tools
 if type exa > /dev/null 2>&1; then
