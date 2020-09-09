@@ -34,7 +34,8 @@ export VISUAL=vim
 export EDITOR=$VISUAL
 
 # Run tmux on startup zsh (no startx)
-if [[ $DISPLAY ]]; then
+if { command -v pacman > /dev/null && $DISPLAY } || \
+  { command -v apt > /dev/null }; then
   [[ $- != *i* ]] && return
   [[ -z "$TMUX" ]] && exec tmux
 fi

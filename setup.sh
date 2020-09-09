@@ -59,9 +59,9 @@ function symlink_invade {
   echo "spamming with symlinks..."
 
   # dotfiles should be in home dir
-  ln -s -f $DOTFILES/vim/vimrc $HOME/.vimrc
-  ln -s -f $DOTFILES/zsh/zshrc $HOME/.zshrc
-  ln -s -f $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
+  ln -sfn $DOTFILES/vim/vimrc $HOME/.vimrc
+  ln -sfn $DOTFILES/zsh/zshrc $HOME/.zshrc
+  ln -sfn $DOTFILES/tmux/tmux.conf $HOME/.tmux.conf
 
   mkdir -p $CONFIG/nvim && \
     ln -sfn $DOTFILES/config/nvim/init.vim $CONFIG/nvim/init.vim
@@ -71,6 +71,16 @@ function symlink_invade {
 
   cp -vn $DOTFILES/git/gitconfig $HOME/.gitconfig
   cp -vn $DOTFILES/git/gitignore $HOME/.gitignore
+
+  if grep -q -i "microsoft" /proc/version && \
+    type code > /dev/null 2>&1; then
+    echo "using wsl with vscode installed"
+    CODE_PATH=$(wslpath "$(wslvar APPDATA)"/Code/User/settings.json)
+    cp -v $DOTFILES/vscode/settings.json $CODE_PATH
+  elif [[ "$OSTYPE" == "linux"* ]]; then
+    echo "using linux with vscode installed"
+    ln -sfn $DOTFILES/vscode/settings.json $CONFIG/Code/User/settings.json
+  fi
 }
 
 # run main entry point
