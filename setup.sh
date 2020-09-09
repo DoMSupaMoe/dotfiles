@@ -10,6 +10,14 @@ YANK_URL="https://github.com/equalsraf/win32yank/releases/download/v0.0.4/$YANK_
 # install packages
 function install_arch {
   echo "installing in arch linux..."
+
+  sudo pacman -Syu
+  sudo pacman -S \
+    zsh git gvim tmux base-devel \
+    neovim fzf exa ranger ripgrep \
+    bat neofetch
+
+  yay -S lazygit 
 }
 
 function install_deb {
@@ -43,6 +51,11 @@ function install_deb {
   sudo dpkg -i $HOME/$BAT_DEB && rm $HOME/$BAT_DEB
 }
 
+# create symlinks
+function symlink_invade {
+  echo "spamming with symlinks..."
+}
+
 # run main entry point
 function main {
   if command -v pacman > /dev/null; then
@@ -50,6 +63,8 @@ function main {
   elif command -v apt > /dev/null; then
     install_deb
   fi
+
+  symlink_invade
 }
 
 main
