@@ -3,7 +3,7 @@ if [ ! -f $HOME/.zinit/bin/zinit.zsh ]; then
 fi
 
 # Add by zinit installer
-source "$HOME/.zinit/bin/zinit.zsh"
+source $HOME/.zinit/bin/zinit.zsh
 autoload -Uz _zinit
 (( ${+_comps} )) && _comps[zinit]=_zinit
 # End of zinit installer
