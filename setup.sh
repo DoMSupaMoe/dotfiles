@@ -78,6 +78,9 @@ function symlink_invade {
   mkdir -p $CONFIG/fzf && \
     ln -sfn $DOTFILES/config/fzf/key-bindings.zsh $CONFIG/fzf/key-bindings.zsh
     ln -sfn $DOTFILES/config/fzf/completion.zsh $CONFIG/fzf/completion.zsh
+  mkdir -p $CONFIG/ranger && \
+    ln -sfn $DOTFILES/config/ranger/commands.py $CONFIG/ranger/commands.py
+    ln -sfn $DOTFILES/config/ranger/rc.conf $CONFIG/ranger/rc.conf
 
   cp -vn $DOTFILES/git/gitconfig $HOME/.gitconfig
   cp -vn $DOTFILES/git/gitignore $HOME/.gitignore
