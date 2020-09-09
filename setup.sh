@@ -7,6 +7,9 @@ YANK_EXE="win32yank.exe"
 YANK_ZIP="win32yank-x64.zip"
 YANK_URL="https://github.com/equalsraf/win32yank/releases/download/v0.0.4/$YANK_ZIP"
 
+NVM_URL="https://raw.githubusercontent.com/nvm-sh/nvm/v0.35.3/install.sh"
+POETRY_URL="https://raw.githubusercontent.com/python-poetry/poetry/master/get-poetry.py"
+
 DOTFILES="$HOME/dotfiles"
 CONFIG="$HOME/.config"
 
@@ -18,9 +21,12 @@ function install_arch {
   sudo pacman -S \
     zsh git gvim tmux base-devel \
     neovim fzf exa ranger ripgrep \
-    bat neofetch
+    bat python neofetch
 
   yay -S lazygit 
+
+  # install rust
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
 function install_deb {
@@ -37,7 +43,7 @@ function install_deb {
   sudo apt install \
     zsh git vim tmux build-essential \
     neovim fzf ranger lazygit ripgrep \
-    neofetch
+    python-is-python3 neofetch
 
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   cargo install exa
@@ -82,6 +88,8 @@ function symlink_invade {
       ln -sfn $DOTFILES/vscode/settings.json $CONFIG/Code\ -\ OSS/User/settings.json
     fi
   fi
+
+  source $HOME/.zshrc   # take effect on zsh
 }
 
 # run main entry point
@@ -91,6 +99,17 @@ function main {
   elif command -v apt > /dev/null; then
     install_deb
   fi
+
+  # install node.js
+  wget -qO- $NVM_URL | bash
+  nvm install node
+
+  # install poetry
+  curl -sSL $POETRY_URL | python
+
+  # install go
+  wget https://golang.org/dl/go1.15.2.linux-amd64.tar.gz
+  tar -C /usr/local -xzf go1.15.2.linux-amd64.tar.gz
 
   symlink_invade
 }
