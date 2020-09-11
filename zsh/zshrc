@@ -20,6 +20,7 @@ zinit snippet OMZL::git.zsh
 zinit snippet OMZL::key-bindings.zsh
 zinit snippet OMZL::completion.zsh
 zinit snippet OMZL::compfix.zsh
+zinit snippet OMZL::history.zsh
 # Load plugins from oh my zsh repo
 zinit snippet OMZP::command-not-found
 

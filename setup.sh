@@ -32,8 +32,8 @@ function install_arch {
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
-function install_deb {
-  echo "installing in ubuntu/debian..."
+function install_ubuntu {
+  echo "installing in ubuntu..."
 
   sudo apt update && sudo apt upgrade
   sudo apt autoremove
@@ -62,6 +62,22 @@ function install_deb {
 
   wget $BAT_URL -O $HOME/$BAT_DEB
   sudo dpkg -i $HOME/$BAT_DEB && rm $HOME/$BAT_DEB
+}
+
+function install_fedora {
+  echo "installing in fedora..."
+
+  sudo dnf upgrade
+  sudo dnf copr enable atim/lazygit -y
+  sudo dnf install \
+    zsh git vim neovim tmux fzf exa \
+    bat ranger lazygit ripgrep neofetch
+
+  sudo dnf groupinstall \
+    "Development Tools" "Development Libraries"
+
+  # install rust
+  curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
 }
 
 # create symlinks
@@ -102,12 +118,10 @@ function main {
   if command -v pacman > /dev/null; then
     install_arch
   elif command -v apt > /dev/null; then
-    install_deb
+    install_ubuntu
+  elif command -v dnf > /dev/null; then
+    install_fedora
   fi
-
-  # install node.js
-  wget -qO- $NVM_URL | bash
-  nvm install node
 
   # install poetry
   curl -sSL $POETRY_URL | python
@@ -117,6 +131,12 @@ function main {
   sudo tar -C /usr/local -xzf $HOME/$GO_TAR && rm $HOME/$GO_TAR
 
   symlink_invade
+
+  chsh -s $(which zsh) && exec /usr/bin/zsh
+
+  # install node.js
+  wget -qO- $NVM_URL | bash
+  nvm install node
 }
 
 main
