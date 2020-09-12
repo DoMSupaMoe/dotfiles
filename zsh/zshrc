@@ -4,8 +4,6 @@ fi
 
 # Add by zinit installer
 source $HOME/.zinit/bin/zinit.zsh
-autoload -Uz _zinit
-(( ${+_comps} )) && _comps[zinit]=_zinit
 # End of zinit installer
 
 # Fast load plugin without track and report
@@ -24,6 +22,9 @@ zinit snippet OMZL::history.zsh
 # Load plugins from oh my zsh repo
 zinit snippet OMZP::command-not-found
 
+autoload -U compinit
+compinit
+
 # Make color constants available
 autoload -U colors
 colors
@@ -33,17 +34,6 @@ zinit snippet OMZT::ys
 
 export VISUAL=vim
 export EDITOR=$VISUAL
-
-# Run tmux on startup zsh (no startx)
-if command -v pacman > /dev/null; then
-  if [[ $DISPLAY ]]; then
-    [[ $- != *i* ]] && return
-    [[ -z "$TMUX" ]] && exec tmux
-  fi
-elif command -v apt > /dev/null; then
-  [[ $- != *i* ]] && return
-  [[ -z "$TMUX" ]] && exec tmux
-fi
 
 # Clone the nvm repository to ~/.nvm
 # Add the source line to the profile
