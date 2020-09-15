@@ -35,19 +35,30 @@ function install_arch {
 function install_ubuntu {
   echo "installing in ubuntu..."
 
-  sudo apt update && sudo apt upgrade
-  sudo apt autoremove
-  sudo apt install update-manager-core
+  sudo apt -y update && sudo apt -y upgrade
+  sudo apt -y autoremove
+  sudo apt -y install update-manager-core
   sudo do-release-upgrade -d
 
-  sudo apt install software-properties-common
+  sudo apt -y install apt-transport-https \
+    ca-certificates curl gnupg-agent \
+    software-properties-common
+
+  curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo apt-key add -
+
   sudo add-apt-repository ppa:lazygit-team/release
+  sudo add-apt-repository "deb [arch=amd64] \
+    https://download.docker.com/linux/ubuntu $(lsb_release -cs) stable"
+
+  # remove old docker pkgs
+  sudo apt remove docker docker-engine docker.io containerd runc
 
   sudo apt update
-  sudo apt install \
+  sudo apt -y install \
     zsh git vim tmux build-essential \
     neovim fzf ranger lazygit ripgrep \
-    python-is-python3 neofetch
+    python-is-python3 neofetch \
+    docker-ce docker-ce-cli containerd.io
 
   curl --proto '=https' --tlsv1.2 -sSf https://sh.rustup.rs | sh
   cargo install exa
